@@ -14,13 +14,13 @@ class FileWorkerTest < Minitest::Test
     f = FileWorker.new
     result = "This is a test"
 
-    assert result, f.file_reader("message.txt")
+    assert result, f.file_reader("test_message.txt")
   end
 
   def test_it_writes_a_file
     f = FileWorker.new
     result = "This is a test"
-
-    assert result, f.file_writer(result, "encrypted.txt")
+    ARGV[1] = "encrypted.txt"
+    assert result, f.file_writer(result)
   end
 end
