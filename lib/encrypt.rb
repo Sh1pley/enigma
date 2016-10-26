@@ -26,7 +26,7 @@ class Encrypt
 
   def write_file(encrypted)
     file_worker.file_writer(encrypted)
-    puts "You created #{ARGV[1]} with a key of #{encryption.key.join} and an offset of #{encryption.offset.join}  "
+    puts "You created #{ARGV[1]} with a key of #{encryption.key.join} and a date of #{Time.now.strftime("%d%m%y")}  "
   end
 
 end
