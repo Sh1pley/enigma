@@ -19,5 +19,4 @@ class EncryptionRotations
                   (offset[2].to_i + key[2..3].join.to_i),
                   (offset[3].to_i + key[3..4].join.to_i)]
   end
-binding.pry
 end

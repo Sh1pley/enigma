@@ -2,7 +2,6 @@ require 'pry'
 class FileWorker
 
   def file_reader(filename)
-    # binding.pry
     File.read(filename).chomp
   end
 
