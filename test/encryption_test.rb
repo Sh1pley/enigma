@@ -23,16 +23,9 @@ class EncryptionTest < Minitest::Test
     assert String, e.splits_the_message.class
   end
 
-  def test_it_prepares_for_encryption_by_pulling_out_of_split_til_it_is_empty
-    message = "This is the message"
-    e = Encryption.new(message)
+  def test_it
 
-    split = ["T", "h", "i", "s", " ", "i", "s", " ", "t", "h", "e", " ", "m", "e", "s", "s", "a", "g", "e"]
 
-    assert_equal NilClass, e.prepares_for_encryption(split).class
-  end
-
-  
 
 
 

@@ -23,7 +23,7 @@ class CharacterMapTest < Minitest::Test
   def test_character_hash_has_75_elements
     c = CharacterMap.new
 
-    assert 75, c.character_hash.count
+    assert 82, c.character_hash.count
   end
 
   def test_character_hash_has_values
