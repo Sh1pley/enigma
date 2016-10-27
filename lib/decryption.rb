@@ -27,37 +27,37 @@ class Decryption
       message.each_with_index do |letter, index|
       # binding.pry
         if index % 4 == 0
-          encrypt_index_one(letter, decrypted)
+          decrypt_index_one(letter, decrypted)
         elsif index % 4 == 1
-          encrypt_index_two(letter, decrypted)
+          decrypt_index_two(letter, decrypted)
         elsif index % 4 == 2
-          encrypt_index_three(letter, decrypted)
+          decrypt_index_three(letter, decrypted)
         elsif index % 4 == 3
-          encrypt_index_four(letter, decrypted)
+          decrypt_index_four(letter, decrypted)
         end
       end
       @decrypted.join
     end
 
-  def encrypt_index_one(letter, decrypted)
+  def decrypt_index_one(letter, decrypted)
      value = ((characters.values_at(letter)[0].to_i) - calculate_rotations[0])
      value += 82 if value < 0
      decrypted << characters.key(value)
    end
 
-   def encrypt_index_two(letter, decrypted)
+   def decrypt_index_two(letter, decrypted)
      value = ((characters.values_at(letter)[1].to_i) + calculate_rotations[1])
      value += 82 if value < 0
      decrypted << characters.key(value)
    end
 
-   def encrypt_index_three(letter, decrypted)
+   def decrypt_index_three(letter, decrypted)
      value = ((characters.values_at(letter)[2].to_i) - calculate_rotations[2])
      value += 82 if value < 0
      decrypted << characters.key(value)
    end
 
-   def encrypt_index_four(letter, decrypted)
+   def decrypt_index_four(letter, decrypted)
      value = ((characters.values_at(letter)[3].to_i) - calculate_rotations[3])
      value += 82 if value < 0
      decrypted << characters.key(value)
