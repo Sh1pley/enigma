@@ -2,11 +2,13 @@ require_relative 'encryption_rotations'
 require_relative 'character_map'
 
 class Encryption
+  # binding.pry
   attr_reader :rotations,
               :characters,
               :encrypted,
               :offset,
-              :key
+              :key,
+              :generated_rotations
 
   def initialize(message)
     @rotations = EncryptionRotations.new
@@ -17,7 +19,9 @@ class Encryption
   end
 
   def generate_rotations
-    rotations.generate_rotations
+    @generated_rotations = []
+  @generated_rotations = rotations.generate_rotations
+
   end
 
   def splits_the_message
@@ -26,8 +30,11 @@ class Encryption
   end
 
   def prepares_for_encryption(split)
+    # binding.pry
+    generate_rotations
      @encrypted = []
      split.each_with_index do |letter, index|
+    #  binding.pry
        if index % 4 == 0
          encrypt_index_one(letter, encrypted)
        elsif index % 4 == 1
@@ -42,26 +49,27 @@ class Encryption
    end
 
    def encrypt_index_one(letter, encrypted)
-     value = ((characters.values_at(letter)[0].to_i) + generate_rotations[0])
-     value -= 82 if value > 82
+    #  binding.pry
+     value = ((characters.values_at(letter).join.to_i) + generated_rotations[0])
+     value -= 83 if value > 83
      encrypted << characters.key(value)
    end
 
    def encrypt_index_two(letter, encrypted)
-     value = ((characters.values_at(letter)[1].to_i) + generate_rotations[1])
-     value -= 82 if value > 82
+     value = ((characters.values_at(letter).join.to_i) + generated_rotations[1])
+     value -= 83 if value > 83
      encrypted << characters.key(value)
    end
 
    def encrypt_index_three(letter, encrypted)
-     value = ((characters.values_at(letter)[2].to_i) + generate_rotations[2])
-     value -= 82 if value > 82
+     value = ((characters.values_at(letter).join.to_i) + generated_rotations[2])
+     value -= 83 if value > 83
      encrypted << characters.key(value)
    end
 
    def encrypt_index_four(letter, encrypted)
-     value = ((characters.values_at(letter)[3].to_i) + generate_rotations[3])
-     value -= 82 if value > 82
+     value = ((characters.values_at(letter).join.to_i) + generated_rotations[3])
+     value -= 83 if value > 83
      encrypted << characters.key(value)
    end
 
