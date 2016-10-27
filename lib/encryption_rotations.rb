@@ -8,11 +8,10 @@ class EncryptionRotations
               :key,
               :rotations
 
-  def offset
-    @offset = Offset.new.square_the_date
-  end
+    
 
-  def key
+  def initialize
+    @offset = Offset.new.square_the_date
     @key = Key.new.generate_number
   end
 

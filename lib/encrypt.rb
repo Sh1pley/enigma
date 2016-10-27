@@ -26,10 +26,10 @@ class Encrypt
 
   def write_file(encrypted)
     file_worker.file_writer(encrypted)
-    puts "You created #{ARGV[1]} with a key of #{encryption.key.join} and a date of #{Time.now.strftime("%d%m%y")}  "
+    "You created #{ARGV[1]} with a key of #{encryption.key.join} and a date of #{Time.now.strftime("%d%m%y")}  "
   end
 
 end
 
-e = Encrypt.new
-e.open_file
+# e = Encrypt.new
+# e.open_file

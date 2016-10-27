@@ -28,6 +28,7 @@ class Encryption
   def prepares_for_encryption(split)
      @encrypted = []
      split.each_with_index do |letter, index|
+    #  binding.pry
        if index % 4 == 0
          encrypt_index_one(letter, encrypted)
        elsif index % 4 == 1

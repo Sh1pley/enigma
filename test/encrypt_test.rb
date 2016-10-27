@@ -12,11 +12,14 @@ class EncryptTest < Minitest::Test
     e = Encrypt.new
     result = "This is a test"
     ARGV[0] = "test_message.txt"
+    ARGV[1] = "encrypted.txt"
     assert result, e.open_file
   end
 
   def test_it_returns_an_encrypted_message
     e = Encrypt.new
+    ARGV[0] = "test_message.txt"
+    ARGV[1] = "encrypted.txt"
     result = "This is a test"
     message = "This is a test"
     refute result == e.encrypt_the_message(message)
@@ -24,8 +27,10 @@ class EncryptTest < Minitest::Test
 
   def test_it_writes_a_file
     e = Encrypt.new
+    ARGV[0] = "test_message.txt"
+    ARGV[1] = "encrypted.txt"
     message = e.open_file
-    assert e.write_file(message)
+    assert e.write_file(message).include?(Time.now.strftime("%d%m%y"))
   end
 
 end

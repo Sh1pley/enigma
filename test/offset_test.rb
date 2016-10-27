@@ -11,14 +11,7 @@ class OffsetTest < Minitest::Test
   def test_that_the_date_is_returned_as_a_six_digit_number
     o = Offset.new
 
-  assert_equal 6, Time.now.strftime("%d%m%y").length
-  end
-
-  def test_that_the_date_is_squared
-  skip
-    o = Offset.new
-
-  assert_equal (Time.now.strftime("%d%m%y")).to_i * (Time.now.strftime("%d%m%y")).to_i , o.square_the_date
+    assert_equal 6, Time.now.strftime("%d%m%y").length
   end
 
   def test_the_offset_is_four_numbers_long

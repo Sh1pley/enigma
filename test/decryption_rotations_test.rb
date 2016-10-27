@@ -17,7 +17,7 @@ class DecryptionRotationsTest < Minitest::Test
   def test_rotations_is_an_array
     dr = DecryptionRotations.new
     
-    assert_equal Array, dr.generate_rotations(["1", "2", "3", "4", "5"],  ["1", "2", "3", "4"]).class
+    assert_equal Array, dr.generate_rotations("12345", "261016").class
   end
 
   def test_rotations_has_4_rotations
