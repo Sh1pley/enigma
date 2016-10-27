@@ -1,8 +1,6 @@
 require_relative 'file_worker'
 require_relative 'decryption'
 
-
-
 class Decrypt
   attr_reader :file_worker,
               :decryption
@@ -24,7 +22,7 @@ class Decrypt
 
   def write_file(decrypted)
     file_worker.file_writer(decrypted)
-    # puts "You created #{ARGV[1]} with a key of #{encryption.key.join} and a date of #{Time.now.strftime("%d%m%y")}  "
+    puts "You created #{ARGV[1]} with a key of #{decryption.key} and a date of #{Time.now.strftime("%d%m%y")}  "
   end
 
 end

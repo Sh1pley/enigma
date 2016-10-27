@@ -5,7 +5,8 @@ require_relative 'cracker'
 
 class Crack
   attr_reader :file_worker,
-              :encryption
+              :encryption,
+              :cracker
 
   def initialize
     @file_worker = FileWorker.new
@@ -18,13 +19,13 @@ class Crack
 
   def crack_the_message(message, date)
     @cracker = Cracker.new(date)
-    cracked = @cracker.crack(message)
+    cracked = cracker.crack(message)
     write_file(cracked)
   end
 
   def write_file(cracked)
     file_worker.file_writer(cracked)
-    # puts "You created #{ARGV[1]} with a key of #{encryption.key.join} and a date of #{Time.now.strftime("%d%m%y")}  "
+    puts "You created #{ARGV[1]} and the key is #{cracker.key} !! "
   end
 
 end

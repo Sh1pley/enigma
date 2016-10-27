@@ -30,10 +30,10 @@ class Decryption
   end
 
   def decrypt_message(prepared)
-    # binding.pry
     calculate_rotations
     @decrypted = []
       prepared.each_with_index do |letter, index|
+    # binding.pry
         if index % 4 == 0
           decrypt_index_one(letter, decrypted)
         elsif index % 4 == 1
@@ -48,26 +48,26 @@ class Decryption
     end
 
   def decrypt_index_one(letter, decrypted)
-     value = ((characters.values_at(letter).join.to_i) - calculated_rotations[0])
-     value += 83 if value < 0
+     value = ((characters.values_at(letter)[0]) - calculated_rotations[0])
+     value += 83 if value < 1
      decrypted << characters.key(value)
    end
 
    def decrypt_index_two(letter, decrypted)
-     value = ((characters.values_at(letter).join.to_i) - calculated_rotations[1])
-     value += 83 if value < 0
+     value = ((characters.values_at(letter)[0]) - calculated_rotations[1])
+     value += 83 if value < 1
      decrypted << characters.key(value)
    end
 
    def decrypt_index_three(letter, decrypted)
-     value = ((characters.values_at(letter).join.to_i) - calculated_rotations[2])
-     value += 83 if value < 0
+     value = ((characters.values_at(letter)[0]) - calculated_rotations[2])
+     value += 83 if value < 1
      decrypted << characters.key(value)
    end
 
    def decrypt_index_four(letter, decrypted)
-     value = ((characters.values_at(letter).join.to_i) - calculated_rotations[3])
-     value += 83 if value < 0
+     value = ((characters.values_at(letter)[0]) - calculated_rotations[3])
+     value += 83 if value < 1
      decrypted << characters.key(value)
    end
  end

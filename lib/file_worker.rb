@@ -11,7 +11,7 @@ attr_reader :read_file,
   end
 
   def file_reader(read_file)
-    File.read(ARGV[0]).chomp
+    File.read(ARGV[0])
   end
 
   def file_writer(write_file)
